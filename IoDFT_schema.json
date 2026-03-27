@@ -1,0 +1,77 @@
+{
+  "taxonomy": "Internet of Data Faults Taxonomy (IoDFT)",
+  "version": "1.0.1",
+  "description": "A structured semantic taxonomy for data-centric faults in IoT-Edge-Cloud (IEC) deployments. IoDFT characterises faults through six independent facets and a three-stage annotation procedure.",
+  "reference": "Altarrazi et al., Addressing the Faults Landscape in the Internet of Things: Toward Datacentric and System Resilience, IEEE Internet Computing, 27(6), 2023.",
+  "procedure": {
+    "stage_1": {
+      "name": "Base Facets",
+      "description": "Assign the four base facets that characterise the fault origin and structure.",
+      "facets": ["component", "source", "duration", "type"]
+    },
+    "stage_2": {
+      "name": "Data Pitfall",
+      "description": "Identify the observable data manifestation of the fault.",
+      "facets": ["pitfall"]
+    },
+    "stage_3": {
+      "name": "Possible Cause",
+      "description": "Hypothesise the underlying cause linked to the component, to guide monitoring and diagnosis.",
+      "facets": ["cause"]
+    }
+  },
+  "facets": {
+    "component": {
+      "description": "Where the fault originates within the IEC system.",
+      "categories": ["hardware", "software", "network"]
+    },
+    "source": {
+      "description": "The location and scope of the fault origin.",
+      "scope": ["single", "multi"],
+      "location": ["internal", "external"]
+    },
+    "duration": {
+      "description": "How long the fault persists in the system.",
+      "categories": ["temporal", "permanent", "haphazard", "progressive"]
+    },
+    "type": {
+      "description": "The structural characteristic of the anomaly in the data.",
+      "categories": ["point", "contextual", "collective"]
+    },
+    "pitfall": {
+      "description": "The observable data manifestation of the fault.",
+      "categories": [
+        "missing",
+        "offset",
+        "stuck-at",
+        "spike",
+        "nonfunctional",
+        "degradation",
+        "out-of-bound",
+        "slow-response-time",
+        "erroneous",
+        "overwhelmed-traffic"
+      ]
+    },
+    "cause": {
+      "description": "Hypothesised underlying reason, linked to the component facet.",
+      "hardware": [
+        "sensor_degradation", "sensor_ageing", "battery_depletion",
+        "solar_panel_obstruction", "physical_damage", "calibration_drift",
+        "memory_failure", "overheating", "environmental_exposure",
+        "power_cycling", "cross_sensitivity"
+      ],
+      "software": [
+        "firmware_bug", "configuration_error", "unit_conversion_error",
+        "schema_change", "buffer_overflow", "parsing_error",
+        "protocol_mismatch", "scheduling_error", "update_failure"
+      ],
+      "network": [
+        "congestion", "signal_interference", "frequency_overlap",
+        "gateway_buffering", "retransmission_failure", "coverage_gap",
+        "bandwidth_saturation", "packet_loss", "latency",
+        "broker_overload", "connectivity_loss"
+      ]
+    }
+  }
+}
